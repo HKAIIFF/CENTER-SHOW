@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIF.CENTER | GLOBAL HUB PRESENTATION</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#050505',
+                        concrete: '#1F1F1F',
+                        signal: '#FF3300', 
+                        steel: '#EAEAEA',
+                        data: '#00F0FF'
+                    },
+                    fontFamily: {
+                        heavy: ['"Oswald"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #EAEAEA;
+            overflow: hidden;
+            cursor: none;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .mega-text {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.85;
+            letter-spacing: -0.02em;
+        }
+
+        .slide-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+        }
+
+        .slide-active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 10;
+        }
+
+        .marquee-container {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: #EAEAEA; color: #050505;
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            z-index: 50;
+            border-top: 2px solid #FF3300;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 6px;
+            background: #FF3300;
+            width: 0%;
+            z-index: 100;
+        }
+
+        .bg-grid {
+            background-size: 50px 50px;
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .decor-line {
+            height: 2px;
+            background: #FF3300;
+            width: 100px;
+            margin: 2rem 0;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 2px #EAEAEA;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader" class="fixed inset-0 bg-void z-[999] flex flex-col justify-center items-center text-white border-4 border-concrete">
+        <div class="font-heavy text-9xl font-bold tracking-tighter text-signal">AIF.CENTER</div>
+        <div class="font-mono mt-4 text-xl">CONNECTING GLOBAL CREATORS...</div>
+    </div>
+
+    <div class="bg-grid bg-grid-pattern opacity-20"></div>
+    
+    <div id="progress-bar"></div>
+
+    <div class="fixed top-8 left-8 right-8 flex justify-between items-start z-40 text-white mix-blend-difference">
+        <div class="font-heavy text-3xl tracking-tighter">AIF.CENTER <span class="text-signal text-sm font-mono align-middle ml-2">HUB</span></div>
+        <div class="text-right font-mono text-xs text-gray-400">
+            <div>GLOBAL CONTENT SUBMISSION CENTER</div>
+            <div id="clock">00:00:00</div>
+        </div>
+    </div>
+
+    <main id="stage" class="relative w-full h-screen overflow-hidden">
+
+        <div class="slide-container" data-duration="6">
+            <div class="max-w-[1920px] mx-auto w-full grid grid-cols-12 gap-8 items-center">
+                <div class="col-span-12 lg:col-span-10">
+                    <div class="font-mono text-signal mb-4 font-bold border border-signal inline-block px-2">/// GLOBAL CONTENT HUB</div>
+                    <h1 class="mega-text text-[8rem] lg:text-[12rem] leading-none mb-6 text-white">
+                        CONTENT<br>
+                        <span class="text-stroke">INPUT / OUTPUT</span>
+                    </h1>
+                    <div class="decor-line"></div>
+                    <h2 class="font-heavy text-4xl uppercase mb-2 text-gray-300">全球徵片中心</h2>
+                    <p class="font-mono text-lg max-w-2xl text-gray-400">
+                        連接全球 AI 影視創作者與觀眾的全方位服務平台。<br>
+                        幫助 AI 原生內容打破壁壘，實現從創作到商業價值的最大化。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container bg-white text-black" data-duration="7">
+            <div class="max-w-[1920px] mx-auto w-full px-8 relative z-10 flex items-center h-full">
+                <div class="grid grid-cols-2 gap-16 w-full items-center">
+                    <div class="border-r-4 border-black pr-12 text-right">
+                        <div class="font-heavy text-[15rem] leading-none text-signal">40%</div>
+                        <div class="font-heavy text-5xl">AI NATIVE STANDARD</div>
+                    </div>
+                    <div>
+                        <h3 class="font-heavy text-4xl mb-6 bg-black text-white inline-block px-4 py-1">CERTIFICATION CRITERIA</h3>
+                        <p class="font-mono text-xl leading-relaxed mb-8">
+                            所有入選作品必須符合嚴格標準：<br>
+                            AI 技術在創作過程中的參與度<br>
+                            <span class="font-bold border-b-2 border-signal">不低於 40%</span>
+                        </p>
+                        <ul class="font-mono text-sm space-y-2 text-gray-600">
+                            <li>>>> 技術使用證明 (Proof of Tech)</li>
+                            <li>>>> 人機協作描述 (Collaboration)</li>
+                            <li>>>> 創新性評估 (Innovation)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container" data-duration="7">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000')] bg-cover bg-center opacity-20 grayscale mix-blend-screen"></div>
+            </div>
+
+            <div class="max-w-[1920px] mx-auto w-full px-8 relative z-10 text-center">
+                <h2 class="font-heavy text-7xl text-white mb-16">GLOBAL <span class="text-stroke">NETWORK</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="border-2 border-signal p-8 bg-black/80 backdrop-blur">
+                        <div class="font-mono text-signal text-xs mb-4">CORE</div>
+                        <div class="font-heavy text-6xl text-white mb-2">HKG</div>
+                        <p class="font-mono text-sm">HEADQUARTERS<br>香港總部</p>
+                    </div>
+                    <div class="border-2 border-white p-8 bg-black/80 backdrop-blur">
+                        <div class="font-mono text-gray-400 text-xs mb-4">HUBS</div>
+                        <div class="font-heavy text-6xl text-white mb-2">06</div>
+                        <p class="font-mono text-sm">REGIONAL CENTERS<br>亞太 / 北美 / 歐洲等</p>
+                    </div>
+                    <div class="border-2 border-white p-8 bg-black/80 backdrop-blur">
+                        <div class="font-mono text-gray-400 text-xs mb-4">REACH</div>
+                        <div class="font-heavy text-6xl text-white mb-2">20+</div>
+                        <p class="font-mono text-sm">LOCAL NODES<br>本地化運營節點</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 font-mono text-xs text-gray-500">
+                    STRATEGY: HUB & SPOKE MODEL // LOCAL EXECUTION, GLOBAL REACH
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container bg-concrete text-white" data-duration="8">
+            <div class="max-w-[1920px] mx-auto w-full px-12">
+                <div class="flex justify-between items-end mb-12 border-b border-gray-600 pb-4">
+                    <h2 class="font-heavy text-7xl">FULL-CHAIN <span class="text-signal">SERVICES</span></h2>
+                    <span class="font-mono text-sm bg-signal text-black px-2">ONE-STOP SOLUTION</span>
+                </div>
+
+                <div class="grid grid-cols-4 gap-4 h-[50vh]">
+                    <div class="bg-black p-6 border-t-4 border-gray-600 hover:border-signal transition-colors group">
+                        <div class="font-heavy text-4xl mb-4 text-gray-500 group-hover:text-white">01. CREATE</div>
+                        <p class="font-mono text-sm text-gray-400">
+                            AI 創作諮詢<br>
+                            市場趨勢分析<br>
+                            技術優化建議
+                        </p>
+                    </div>
+                    <div class="bg-black p-6 border-t-4 border-gray-600 hover:border-signal transition-colors group">
+                        <div class="font-heavy text-4xl mb-4 text-gray-500 group-hover:text-white">02. FUND</div>
+                        <p class="font-mono text-sm text-gray-400">
+                            代幣發行服務<br>
+                            項目眾籌支持<br>
+                            商業化對接
+                        </p>
+                    </div>
+                    <div class="bg-black p-6 border-t-4 border-gray-600 hover:border-signal transition-colors group">
+                        <div class="font-heavy text-4xl mb-4 text-gray-500 group-hover:text-white">03. ADAPT</div>
+                        <p class="font-mono text-sm text-gray-400">
+                            本土文化改造<br>
+                            100+ 語言翻譯<br>
+                            版權代理
+                        </p>
+                    </div>
+                    <div class="bg-black p-6 border-t-4 border-gray-600 hover:border-signal transition-colors group">
+                        <div class="font-heavy text-4xl mb-4 text-gray-500 group-hover:text-white">04. PROTECT</div>
+                        <p class="font-mono text-sm text-gray-400">
+                            區塊鏈版權註冊<br>
+                            全球侵權監測<br>
+                            法律支持
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container bg-signal text-black" data-duration="7">
+            <div class="max-w-6xl mx-auto w-full">
+                <h2 class="font-heavy text-7xl mb-12 text-white text-center">GLOBAL DISTRIBUTION</h2>
+                
+                <div class="grid grid-cols-2 gap-12">
+                    <div class="bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                        <h3 class="font-heavy text-4xl mb-4 border-b-2 border-black pb-2">OWNED PLATFORMS</h3>
+                        <ul class="font-mono text-lg space-y-4">
+                            <li class="flex items-center"><i class="fa-solid fa-play mr-4"></i> "AIF" Online Theater</li>
+                            <li class="flex items-center"><i class="fa-solid fa-mobile-screen mr-4"></i> Mobile App Ecosystem</li>
+                            <li class="flex items-center"><i class="fa-solid fa-vr-cardboard mr-4"></i> AIF Metaverse Space</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-black text-white p-8 shadow-[8px_8px_0px_0px_rgba(255,255,255,1)]">
+                        <h3 class="font-heavy text-4xl mb-4 border-b-2 border-white pb-2">PARTNER NETWORK</h3>
+                        <ul class="font-mono text-lg space-y-4">
+                            <li class="flex items-center"><i class="fa-solid fa-earth-americas mr-4"></i> Global Streaming (Netflix etc.)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-film mr-4"></i> Cinema Chains (Theater)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-tv mr-4"></i> TV Networks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container" data-duration="7">
+            <div class="max-w-[1920px] mx-auto w-full grid grid-cols-12 gap-8 items-center border-2 border-concrete bg-void">
+                <div class="col-span-5 p-12 border-r-2 border-concrete flex flex-col justify-center h-full">
+                    <h2 class="font-heavy text-6xl mb-8 text-white">CREATOR <span class="text-signal">VALUE</span></h2>
+                    <p class="font-mono text-gray-400 mb-8">
+                        我們為創作者提供全方位的賦能，從技術到變現，讓創意價值最大化。
+                    </p>
+                    <div class="font-mono text-xs text-signal">
+                        /// EMPOWERMENT & MONETIZATION
+                    </div>
+                </div>
+                
+                <div class="col-span-7 p-12">
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="hover:bg-concrete transition-colors p-4">
+                            <div class="font-heavy text-5xl text-white mb-2">70%</div>
+                            <div class="font-mono text-sm text-gray-400">REVENUE SHARE<br>高比例收益分成</div>
+                        </div>
+                        <div class="hover:bg-concrete transition-colors p-4">
+                            <div class="font-heavy text-5xl text-white mb-2">WEB3</div>
+                            <div class="font-mono text-sm text-gray-400">COPYRIGHT<br>區塊鏈確權保護</div>
+                        </div>
+                        <div class="hover:bg-concrete transition-colors p-4">
+                            <div class="font-heavy text-5xl text-white mb-2">GLOBAL</div>
+                            <div class="font-mono text-sm text-gray-400">EXPOSURE<br>全球巡展與發行</div>
+                        </div>
+                        <div class="hover:bg-concrete transition-colors p-4">
+                            <div class="font-heavy text-5xl text-white mb-2">TOKEN</div>
+                            <div class="font-mono text-sm text-gray-400">SUPPORT<br>代币眾籌與激勵</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container bg-black text-white" data-duration="5">
+            <div class="max-w-5xl mx-auto w-full text-center">
+                <h1 class="font-heavy text-7xl mb-8 uppercase text-gray-300">Submit Your Future</h1>
+                <p class="font-mono text-xl mb-12 text-gray-500">
+                    JOIN THE GLOBAL AI FILM NETWORK
+                </p>
+                <div class="inline-block border-2 border-signal p-2 hover:scale-105 transition-transform duration-300">
+                    <div class="bg-signal text-black px-12 py-6 font-heavy text-5xl lg:text-7xl tracking-tighter">
+                        WWW.AIF.CENTER
+                    </div>
+                </div>
+                <div class="mt-12 font-mono text-xs text-gray-600">
+                    [ AUTO-LOOP SEQUENCE ]<br>
+                    © 2025 AIF GLOBAL SUBMISSION CENTER
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="marquee-container">
+        <div class="marquee-content font-heavy text-2xl uppercase tracking-wider">
+            <span class="mx-8 text-signal">///</span> GLOBAL CONTENT HUB
+            <span class="mx-8 text-signal">///</span> 40% AI STANDARD
+            <span class="mx-8 text-signal">///</span> BLOCKCHAIN COPYRIGHT
+            <span class="mx-8 text-signal">///</span> ONE-STOP SERVICE
+            <span class="mx-8 text-signal">///</span> GLOBAL DISTRIBUTION
+            <span class="mx-8 text-signal">///</span> GLOBAL CONTENT HUB
+            <span class="mx-8 text-signal">///</span> 40% AI STANDARD
+            <span class="mx-8 text-signal">///</span> BLOCKCHAIN COPYRIGHT
+            <span class="mx-8 text-signal">///</span> ONE-STOP SERVICE
+            <span class="mx-8 text-signal">///</span> GLOBAL DISTRIBUTION
+        </div>
+    </div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-US', { hour12: false });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Slide Logic
+        const slides = document.querySelectorAll('.slide-container');
+        const progressBar = document.getElementById('progress-bar');
+        const loader = document.getElementById('loader');
+        let currentIndex = 0;
+        let slideInterval;
+
+        function initSystem() {
+            // Loader Animation
+            gsap.to(loader, {
+                yPercent: -100,
+                duration: 1,
+                ease: "power4.inOut",
+                onComplete: () => {
+                    playSlide(0);
+                }
+            });
+        }
+
+        function playSlide(index) {
+            if (index >= slides.length) index = 0;
+            currentIndex = index;
+
+            const currentSlide = slides[index];
+            const duration = parseInt(currentSlide.getAttribute('data-duration')) || 5;
+
+            // Reset all slides
+            slides.forEach((slide, i) => {
+                if (i !== index) {
+                    gsap.to(slide, { opacity: 0, autoAlpha: 0, duration: 0.5 });
+                }
+            });
+
+            // Enter current slide
+            gsap.fromTo(currentSlide, 
+                { autoAlpha: 1, y: 50, opacity: 0 },
+                { autoAlpha: 1, y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+            );
+
+            // Stagger animations for internal elements
+            const elements = currentSlide.querySelectorAll('h1, h2, h3, p, .decor-line, .grid > div, li');
+            gsap.fromTo(elements, 
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.05, delay: 0.2, ease: "power2.out" }
+            );
+
+            // Progress Bar
+            gsap.fromTo(progressBar, 
+                { width: "0%" },
+                { width: "100%", duration: duration, ease: "linear" }
+            );
+
+            // Loop Timer
+            clearTimeout(slideInterval);
+            slideInterval = setTimeout(() => {
+                gsap.to(currentSlide, {
+                    y: -50, opacity: 0, duration: 0.8, ease: "power2.in",
+                    onComplete: () => {
+                        playSlide(currentIndex + 1);
+                    }
+                });
+            }, duration * 1000);
+        }
+
+        window.onload = initSystem;
+    </script>
+</body>
+</html>
